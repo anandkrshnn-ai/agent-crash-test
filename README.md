@@ -21,7 +21,7 @@ pip install -r requirements.txt
 pytest tests/ -v
 
 # Minimal LangGraph demo (deterministic, no LLM key required)
-PYTHONPATH=. python -m examples.langgraph_math
+python -m examples.langgraph_math
 ```
 
 Trajectories are written to `runs/*.json`.
