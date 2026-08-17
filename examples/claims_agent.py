@@ -44,18 +44,20 @@ class ClaimsTools:
 
 class RuleBasedClaimsAgent:
     """
-    A robust rule-based baseline claims agent that parses Indic date formats,
-    numbering systems (Lakh, Crore, ₹), code-mixed Hinglish/Tanglish instructions,
-    and adheres to clarification contracts.
+    REFERENCE REGRESSION BASELINE ONLY:
+    This rule-based agent serves strictly as a harness plumbing validator and CI sanity-check.
+    It is NOT a Device Under Test (DUT) for benchmarking or failure discovery, as rule-based
+    heuristics do not reflect real LLM reasoning or failure modes.
     """
 
     def __init__(self, tools: Optional[List[Any]] = None):
-        self.name = "BaselineIndicClaimsAgent"
+        self.name = "ReferenceRegressionBaseline"
         self.tools = tools or [
             ClaimsTools.lookup_policy,
             ClaimsTools.create_claim,
             ClaimsTools.get_claim_status,
         ]
+
 
     def _parse_amount(self, text: str) -> Optional[float]:
         # Clean Devanagari numerals

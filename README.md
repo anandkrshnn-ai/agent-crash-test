@@ -9,20 +9,35 @@ Minimal, extensible harness for stress-testing open agent frameworks (LangGraph,
 - Produce a structured **Failure Registry** entry for every run
 - Start with open models + open frameworks so anyone can reproduce
 
-## Quick Start
+## Quickstart
 
+### 1. Harness Regression Check (Reference Baseline)
+Runs the deterministic reference baseline to verify harness mechanics, trajectory serialization, and evaluator scoring:
 ```bash
-cd agent-crash-test
-python -m venv .venv
-source .venv/bin/activate   # or Windows equivalent
-pip install -r requirements.txt
-
-# Unit tests (no LLM needed)
-pytest tests/ -v
-
-# Minimal LangGraph demo (deterministic, no LLM key required)
-PYTHONPATH=. python -m examples.langgraph_math
+python harness/scenario_runner.py --agent baseline
 ```
+
+### 2. Authentic Agent Crash Test (LLM Device Under Test)
+Evaluates an un-tuned LLM model on the `claims_v0` Indic chaos pack without pre-tuned heuristics:
+```bash
+# Local open weights via Ollama
+python harness/scenario_runner.py --agent llm --provider ollama --model qwen2.5:7b
+
+# Cloud / Open weights via Groq / OpenAI-compatible endpoint
+python harness/scenario_runner.py --agent llm --provider groq --model llama-3.1-70b-versatile
+```
+
+### 3. Run Automated Test Suite
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+
+---
+
+## Evaluation Philosophy: Baseline vs. DUT
+
+- **`RuleBasedClaimsAgent` (Reference Baseline)**: A rule-based parser used exclusively in CI to verify harness invariants and ensure trajectory capture is lossless. It is **not** a benchmark candidate.
+- **`build_llm_claims_agent` (Device Under Test)**: A pure ReAct agent connected to open or frontier models. Evaluator scorecards on this agent expose authentic LLM reasoning failures: date inversion assumptions, crore/lakh conversion drops, and unhandled multi-turn contradictions.
 
 Trajectories are written to `runs/*.json`.
 

@@ -168,14 +168,37 @@ class ScenarioPackRunner:
 
 
 if __name__ == "__main__":
-    runner = ScenarioPackRunner(output_dir="./runs")
-    pack_file = str(root_dir / "scenarios" / "claims_v0.json")
+    import argparse
 
-    # Run against baseline Indic claims agent
+    parser = argparse.ArgumentParser(description="Run Agent Crash Test scenario pack against target agents.")
+    parser.add_argument("--pack", type=str, default=str(root_dir / "scenarios" / "claims_v0.json"), help="Path to scenario pack JSON")
+    parser.add_argument("--agent", type=str, choices=["baseline", "llm"], default="baseline", help="Agent target: 'baseline' (regression sanity check) or 'llm' (un-tuned LLM model)")
+    parser.add_argument("--provider", type=str, default="openai", help="LLM provider (ollama, groq, openai, vllm)")
+    parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model name (e.g. qwen2.5:7b, llama-3.1-70b)")
+    parser.add_argument("--base-url", type=str, default=None, help="Custom LLM base URL (e.g. http://localhost:11434)")
+    parser.add_argument("--output-dir", type=str, default="./runs", help="Output directory for Failure Registry")
+
+    args = parser.parse_args()
+
+    runner = ScenarioPackRunner(output_dir=args.output_dir)
     adapter = LangGraphAdapter()
+
+    if args.agent == "baseline":
+        print("[INFO] Running against REFERENCE REGRESSION BASELINE (plumbing & CI check only).")
+        agent_factory = lambda: RuleBasedClaimsAgent()
+    else:
+        print(f"[INFO] Running against UN-TUNED LLM AGENT (Provider: {args.provider}, Model: {args.model}).")
+        from examples.llm_claims_agent import build_llm_claims_agent
+        agent_factory = lambda: build_llm_claims_agent(
+            model_provider=args.provider,
+            model_name=args.model,
+            base_url=args.base_url,
+        )
+
     runner.run_pack(
-        pack_path=pack_file,
-        agent_factory=lambda: RuleBasedClaimsAgent(),
+        pack_path=args.pack,
+        agent_factory=agent_factory,
         adapter=adapter,
         verbose=True,
     )
+
