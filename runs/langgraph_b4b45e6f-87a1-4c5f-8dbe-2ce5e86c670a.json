@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "b4b45e6f-87a1-4c5f-8dbe-2ce5e86c670a",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:18:25.285528Z",
+    "ended_at": "2026-08-17T04:18:45.747221Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "D_claims_field_chaos",
+      "D1_03_missing_claim_amount"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "1d06a459",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:18:34.033585Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": null,
+          "description": "Windshield cracked on 2026-06-20 for policy POL-4002.",
+          "incident_date": "2026-06-20",
+          "policy_id": "POL-4002"
+        },
+        "call_id": "943f193a-bcf9-43d7-afc1-3fc670a44bd6"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "e8450e12",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:18:34.037911Z",
+      "content": "Error invoking tool 'create_claim' with kwargs {'amount': None, 'description': 'Windshield cracked on 2026-06-20 for policy POL-4002.', 'incident_date': '2026-06-20', 'policy_id': 'POL-4002'} with error:\n amount: Input should be a valid number\n Please fix the error and try again.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "d5c91970",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:18:45.747221Z",
+      "content": "To register a claim, I need to know the amount of the damage. Can you please provide me with the cost of repairing or replacing your windshield?\n\nOnce I have this information, I can assist you in creating a claim for your policy, POL-4002, which occurred on 2026-06-20.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "03b5f02e-6479-4ef6-9c11-b0c9ee6b63aa",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:16.562128Z",
+    "ended_at": "2026-08-17T03:21:16.562128Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "D_claims_field_chaos",
+      "D2_01_contradictory_amount_user_vs_form"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "2c936442",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.562128Z",
+      "content": "Analyzing claims intake request: I am attaching repair bill showing 50000, but I only want to claim 35000 deductible under policy POL-4003, date 2026-03-25.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "177bbc97",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.562128Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "311bb8ec-e4c2-41d7-a397-1986bfc60ba2",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:08:57.715266Z",
+    "ended_at": "2026-08-17T04:09:18.837852Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A1_02_ddmm_unambiguous_high_day"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "2454e89f",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:09:07.514473Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "25000",
+          "incident_date": "2026-05-24",
+          "description": "Accident occurred on 24/05/2026. Policy POL-1002",
+          "policy_id": "POL-1002"
+        },
+        "call_id": "af3549fb-2899-412d-ba8f-485e5e3dc21c"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "6153cab1",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:09:07.519326Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-6394\", \"policy_id\": \"POL-1002\", \"incident_date\": \"2026-05-24\", \"amount\": 25000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "1dbab012",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:09:18.837852Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-6394. Our team will review your claim and get back to you once the status is updated.\n\nYou can check the status of your claim by calling the `get_claim_status` tool with the claim ID CLM-6394.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

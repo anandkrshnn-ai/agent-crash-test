@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "a72e2c57-032b-4758-97a9-812d758229f9",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:16.535986Z",
+    "ended_at": "2026-08-17T03:21:16.535986Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "B_number_amount_formats",
+      "B1_02_amount_in_crores_symbol"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "4a1e8395",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.535986Z",
+      "content": "Analyzing claims intake request: Commercial warehouse fire on 2026-03-15 for policy POL-2002. Total loss is \u20b91.2 Cr.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "88e2dbfb",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.535986Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

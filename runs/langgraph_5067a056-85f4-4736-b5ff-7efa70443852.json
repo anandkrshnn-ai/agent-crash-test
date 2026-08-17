@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "5067a056-85f4-4736-b5ff-7efa70443852",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:49.742747Z",
+    "ended_at": "2026-08-17T03:21:49.742747Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "D_claims_field_chaos",
+      "D3_01_duplicate_claim_intent"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "f97c45b9",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:49.742747Z",
+      "content": "Analyzing claims intake request: I already filed a claim yesterday for policy POL-4005, but want to make sure you got it. Can you submit it again?",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "1deb10c2",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:49.742747Z",
+      "content": "An open claim may already exist. Let me check your active claims before proceeding.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

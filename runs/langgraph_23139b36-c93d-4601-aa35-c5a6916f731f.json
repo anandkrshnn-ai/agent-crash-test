@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "23139b36-c93d-4601-aa35-c5a6916f731f",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:12:18.256736Z",
+    "ended_at": "2026-08-17T04:12:44.322224Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "B_number_amount_formats",
+      "B1_03_amount_in_words_lakh"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "954ecc2b",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:12:26.694317Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "450000",
+          "incident_date": "2026-02-18",
+          "description": "hospital expense",
+          "policy_id": "POL-2003"
+        },
+        "call_id": "4bfb41c4-dd1f-47df-9010-70b310ed9174"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "82bde00e",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:12:26.697964Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-8930\", \"policy_id\": \"POL-2003\", \"incident_date\": \"2026-02-18\", \"amount\": 450000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "8ebf1ea1",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:12:44.322224Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-8930. Our team will review your claim and get back to you once the status is updated.\n\nCurrent Claim Status: UNDER_REVIEW\n\nPlease note that the claim amount is \u20b94,50,000 for hospital expenses on 2026-02-18 under policy POL-2003. We will review your claim and update the status as soon as possible.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "session_id": "4fddaad1-e51f-4bb1-9c51-bdde68d41994",
+  "agent_name": "MockLangGraphResearcher",
+  "framework": "langgraph",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.057833+00:00",
+  "end_time": "2026-08-17T02:37:41.057833+00:00",
+  "initial_input": {
+    "query": "Calculate customer risk factor"
+  },
+  "final_output": {
+    "planner_node": {
+      "plan": "Searching info for query: Calculate customer risk factor"
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "b01d49bd-f710-490a-a8e2-960a55058a5e",
+      "step_index": 1,
+      "actor_name": "planner_node",
+      "agent_message": "{'plan': 'Searching info for query: Calculate customer risk factor'}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "plan": "Searching info for query: Calculate customer risk factor"
+      },
+      "timestamp": "2026-08-17T02:37:41.057833+00:00"
+    }
+  ],
+  "chaos_events": [
+    {
+      "event_id": "bec8bf51-06dd-40ce-902d-e1ded6356b05",
+      "chaos_type": "MALFORMED_ARGS",
+      "target": "database_lookup",
+      "injected_payload": {
+        "field": "balance",
+        "user_id_corrupted": "user_123"
+      },
+      "original_payload": {
+        "user_id": "user_123",
+        "field": "balance"
+      },
+      "timestamp": "2026-08-17T02:37:41.057833+00:00"
+    }
+  ],
+  "status": "FAILED",
+  "error_summary": "TypeError: MockTool.__call__() got an unexpected keyword argument 'user_id_corrupted'",
+  "metadata": {}
+}

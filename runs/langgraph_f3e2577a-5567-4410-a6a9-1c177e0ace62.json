@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "f3e2577a-5567-4410-a6a9-1c177e0ace62",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:16.555106Z",
+    "ended_at": "2026-08-17T03:21:16.555106Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C4_02_code_mix_language_switching"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "70c65c27",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.555106Z",
+      "content": "Analyzing claims intake request: I need help regarding my insurance claim. Policy number POL-3007 hai, date 2026-07-02, amount 12000.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "aa26a601",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.555106Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

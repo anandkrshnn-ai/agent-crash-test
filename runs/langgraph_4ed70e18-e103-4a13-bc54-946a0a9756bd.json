@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "4ed70e18-e103-4a13-bc54-946a0a9756bd",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:16.524845Z",
+    "ended_at": "2026-08-17T03:21:16.524845Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A3_01_relative_date_parso"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "b70d3920",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.524845Z",
+      "content": "Analyzing claims intake request: Parso mera car accident hua tha. Policy id POL-1005, repair bill 18000.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "7e4dbc06",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:16.524845Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "1e04e811-5d74-42df-9eb3-e1dcd98fb11e",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:11:07.712648Z",
+    "ended_at": "2026-08-17T04:11:29.205957Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A4_01_future_incident_date"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "9d8981e2",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:11:15.654799Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "incident_date": "2029-12-30",
+          "description": "accident",
+          "policy_id": "POL-1008",
+          "amount": "10000"
+        },
+        "call_id": "0817a938-aa7f-4386-8af1-c03e73f4986c"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "3bd55fd5",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:11:15.658695Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-0026\", \"policy_id\": \"POL-1008\", \"incident_date\": \"2029-12-30\", \"amount\": 10000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "c96a2f82",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:11:29.205617Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-0026. The claim status is currently UNDER_REVIEW. We will review your claim and get back to you once the status is updated. You can check the status of your claim at any time by calling the get_claim_status function with the claim ID CLM-0026.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "session_id": "fc347e00-ce14-4bb1-877c-6f734206b896",
+  "agent_name": "MockLangGraphResearcher",
+  "framework": "langgraph",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.060841+00:00",
+  "end_time": "2026-08-17T02:37:41.060841+00:00",
+  "initial_input": {
+    "query": "Calculate customer risk factor"
+  },
+  "final_output": {
+    "planner_node": {
+      "plan": "Searching info for query: Calculate customer risk factor"
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "87497e88-d2ec-49b2-9f7f-672a0b223fb5",
+      "step_index": 1,
+      "actor_name": "planner_node",
+      "agent_message": "{'plan': 'Searching info for query: Calculate customer risk factor'}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "plan": "Searching info for query: Calculate customer risk factor"
+      },
+      "timestamp": "2026-08-17T02:37:41.060841+00:00"
+    }
+  ],
+  "chaos_events": [],
+  "status": "FAILED",
+  "error_summary": "RuntimeError: HTTP 503: Service Unavailable",
+  "metadata": {}
+}

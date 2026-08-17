@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "e560c967-c9fd-44a3-ab20-b07f9e3d4818",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:22:05.892293Z",
+    "ended_at": "2026-08-17T03:22:05.892293Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "D_claims_field_chaos",
+      "D2_02_contradictory_dates_turn_update"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "b75c0b12",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.892293Z",
+      "content": "Analyzing claims intake request: Accident happened on 2026-01-10 for policy POL-4004, amount 15000. Sorry, I typed wrong date earlier, the actual date was 2026-01-12.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "b18a3aad",
+      "step_index": 1,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T03:22:05.892293Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "policy_id": "POL-4004",
+          "incident_date": "2026-01-12",
+          "amount": 15000.0
+        },
+        "call_id": "call_create"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "da9cee6c",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.892293Z",
+      "content": "Claim registered successfully: CLM-3222.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

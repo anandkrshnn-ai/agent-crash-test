@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "5f637a0c-ac8a-4d2f-a804-94a815d7cb43",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:20:52.441993Z",
+    "ended_at": "2026-08-17T03:20:52.442990Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C1_01_hinglish_status_check"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "b3dac10f",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.442990Z",
+      "content": "{'content': 'Analyzing claims intake request: Mera claim status check kardo na for policy POL-3001, claim id CLM-9912.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "c6e3a9f0",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.442990Z",
+      "content": "{'content': 'Claim amount must be strictly positive.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

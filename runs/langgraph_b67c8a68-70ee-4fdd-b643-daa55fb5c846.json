@@ -1,0 +1,84 @@
+{
+  "session_id": "b67c8a68-70ee-4fdd-b643-daa55fb5c846",
+  "agent_name": "MockLangGraphResearcher",
+  "framework": "langgraph",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.053210+00:00",
+  "end_time": "2026-08-17T02:37:41.053210+00:00",
+  "initial_input": {
+    "query": "Calculate customer risk factor"
+  },
+  "final_output": {
+    "synthesis_node": {
+      "response": "Found results: [{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}]"
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "59df62a9-6ed7-4860-9ebf-49db89d1a58f",
+      "step_index": 1,
+      "actor_name": "planner_node",
+      "agent_message": "{'plan': 'Searching info for query: Calculate customer risk factor'}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "plan": "Searching info for query: Calculate customer risk factor"
+      },
+      "timestamp": "2026-08-17T02:37:41.053210+00:00"
+    },
+    {
+      "turn_id": "d7b92862-414e-485b-8f4a-5883f0a80c7a",
+      "step_index": 2,
+      "actor_name": "tool_node",
+      "agent_message": "{'results': [{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}]}",
+      "tool_calls": [
+        {
+          "call_id": "97344168-7d56-41f5-ad7d-e8e4adc3922e",
+          "tool_name": "database_lookup",
+          "tool_input": {
+            "args": "()",
+            "kwargs": {
+              "user_id": "user_123",
+              "field": "balance"
+            }
+          },
+          "tool_output": {
+            "status": "ok",
+            "user_id": "user_123",
+            "field": "balance",
+            "value": 1500
+          },
+          "error": null,
+          "execution_time_ms": 0.009900002623908222,
+          "chaos_event": null,
+          "timestamp": "2026-08-17T02:37:41.053210+00:00"
+        }
+      ],
+      "state_snapshot": {
+        "results": [
+          {
+            "status": "ok",
+            "user_id": "user_123",
+            "field": "balance",
+            "value": 1500
+          }
+        ]
+      },
+      "timestamp": "2026-08-17T02:37:41.053210+00:00"
+    },
+    {
+      "turn_id": "2c7d0482-44e3-4ce7-9707-0cba6669911f",
+      "step_index": 3,
+      "actor_name": "synthesis_node",
+      "agent_message": "{'response': \"Found results: [{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}]\"}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "response": "Found results: [{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}]"
+      },
+      "timestamp": "2026-08-17T02:37:41.053210+00:00"
+    }
+  ],
+  "chaos_events": [],
+  "status": "SUCCESS",
+  "error_summary": null,
+  "metadata": {}
+}

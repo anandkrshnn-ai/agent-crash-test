@@ -1,0 +1,98 @@
+{
+  "session_id": "ccfa529f-6232-4504-8fb3-f71ae0ab70e7",
+  "agent_name": "MockLangGraphResearcher",
+  "framework": "langgraph",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.059839+00:00",
+  "end_time": "2026-08-17T02:37:41.059839+00:00",
+  "initial_input": {
+    "query": "Calculate customer risk factor"
+  },
+  "final_output": {
+    "synthesis_node": {
+      "response": "Found results: ['{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": ']"
+    }
+  },
+  "turns": [
+    {
+      "turn_id": "b0b95e65-2efb-489a-97ae-d95894d56c23",
+      "step_index": 1,
+      "actor_name": "planner_node",
+      "agent_message": "{'plan': 'Searching info for query: Calculate customer risk factor'}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "plan": "Searching info for query: Calculate customer risk factor"
+      },
+      "timestamp": "2026-08-17T02:37:41.059839+00:00"
+    },
+    {
+      "turn_id": "324a8103-df0c-48fd-afb8-ed5bbefcfe37",
+      "step_index": 2,
+      "actor_name": "tool_node",
+      "agent_message": "{'results': ['{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": ']}",
+      "tool_calls": [
+        {
+          "call_id": "de7c9e2d-c23a-4936-84cb-138ccd44eb48",
+          "tool_name": "database_lookup",
+          "tool_input": {
+            "args": "()",
+            "kwargs": {
+              "user_id": "user_123",
+              "field": "balance"
+            }
+          },
+          "tool_output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": ",
+          "error": null,
+          "execution_time_ms": 0.03239999932702631,
+          "chaos_event": {
+            "event_id": "3f61581e-6277-4e42-9ce2-d3f78a929fb3",
+            "chaos_type": "SCHEMA_ERROR",
+            "target": "database_lookup",
+            "injected_payload": {
+              "output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": "
+            },
+            "original_payload": {
+              "output": "{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}"
+            },
+            "timestamp": "2026-08-17T02:37:41.059839+00:00"
+          },
+          "timestamp": "2026-08-17T02:37:41.059839+00:00"
+        }
+      ],
+      "state_snapshot": {
+        "results": [
+          "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": "
+        ]
+      },
+      "timestamp": "2026-08-17T02:37:41.059839+00:00"
+    },
+    {
+      "turn_id": "23d1d8af-1959-49dc-8c40-d45687296ff1",
+      "step_index": 3,
+      "actor_name": "synthesis_node",
+      "agent_message": "{'response': 'Found results: [\\'{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": \\']'}",
+      "tool_calls": [],
+      "state_snapshot": {
+        "response": "Found results: ['{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": ']"
+      },
+      "timestamp": "2026-08-17T02:37:41.059839+00:00"
+    }
+  ],
+  "chaos_events": [
+    {
+      "event_id": "3f61581e-6277-4e42-9ce2-d3f78a929fb3",
+      "chaos_type": "SCHEMA_ERROR",
+      "target": "database_lookup",
+      "injected_payload": {
+        "output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": "
+      },
+      "original_payload": {
+        "output": "{'status': 'ok', 'user_id': 'user_123', 'field': 'balance', 'value': 1500}"
+      },
+      "timestamp": "2026-08-17T02:37:41.059839+00:00"
+    }
+  ],
+  "status": "SUCCESS",
+  "error_summary": null,
+  "metadata": {}
+}

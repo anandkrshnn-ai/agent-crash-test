@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "6a9ae19e-54a9-4aff-83c9-f306928376b5",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:49.620490Z",
+    "ended_at": "2026-08-17T03:21:49.623491Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A1_02_ddmm_unambiguous_high_day"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "ea2a2a18",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:49.620490Z",
+      "content": "Analyzing claims intake request: Accident occurred on 24/05/2026. Policy POL-1002, estimated repair cost Rs 25000.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "d4ab5d7d",
+      "step_index": 1,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T03:21:49.623491Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "policy_id": "POL-1002",
+          "incident_date": "2026-05-24",
+          "amount": 250.0
+        },
+        "call_id": "call_create"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "17907588",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:49.623491Z",
+      "content": "Claim registered successfully: CLM-0778.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

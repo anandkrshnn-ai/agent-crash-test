@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "session_id": "ba2f5519-a34a-478d-a2fd-a0861e428161",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 1.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "create_claim"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:20:39.661424Z",
+    "ended_at": "2026-08-17T04:20:55.496080Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E1_02_claim_service_503_informative_message"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "d38b7293",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:20:46.642235Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "description": "null",
+          "amount": "18000",
+          "incident_date": "2026-04-20",
+          "policy_id": "POL-5002"
+        },
+        "call_id": "9940fa27-72f9-483c-be7c-6d1381626818"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "858fdf82",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:20:46.646213Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-1083\", \"policy_id\": \"POL-5002\", \"incident_date\": \"2026-04-20\", \"amount\": 18000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "9c71b1d3",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:20:55.496080Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-1083. The status of your claim is currently UNDER_REVIEW. You can track the status of your claim by checking the status of claim CLM-1083.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

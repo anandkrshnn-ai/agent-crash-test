@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "53d930f6-9c8a-4a10-9832-617386f247fd",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:20:52.417981Z",
+    "ended_at": "2026-08-17T03:20:52.417981Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A1_01_ddmm_ambiguous_slash"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "c4011bde",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.417981Z",
+      "content": "{'content': 'Analyzing claims intake request: I had a bike accident on 03/04/2026. Please file a claim for policy POL-1001 for amount 15000.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "42587a54",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.417981Z",
+      "content": "{'content': 'Claim amount must be strictly positive.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

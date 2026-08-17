@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "session_id": "47d62ae2-b36d-4e92-9146-25fa28fc9db2",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:15:33.092136Z",
+    "ended_at": "2026-08-17T04:15:43.732600Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C2_02_tanglish_status_query"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "2cef4760",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:15:38.102256Z",
+      "content": "Tool call: get_claim_status",
+      "tool_call": {
+        "tool_name": "get_claim_status",
+        "arguments": {
+          "claim_id": "CLM-5521"
+        },
+        "call_id": "1ed9fab6-0a41-4aee-aeb2-b2f15351a079"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "0e426b5f",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:15:38.105488Z",
+      "content": "{\"status\": \"success\", \"claim_id\": \"CLM-5521\", \"current_status\": \"APPROVED_PENDING_PAYOUT\", \"approved_amount\": 35000.0}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "13628a80",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:15:43.732600Z",
+      "content": "The claim status for CLM-5521 is APPROVED_PENDING_PAYOUT. The approved amount is \u20b935,000.00.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

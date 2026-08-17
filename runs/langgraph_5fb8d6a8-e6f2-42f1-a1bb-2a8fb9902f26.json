@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "session_id": "5fb8d6a8-e6f2-42f1-a1bb-2a8fb9902f26",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:22:25.685489Z",
+    "ended_at": "2026-08-17T03:22:25.686489Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C2_02_tanglish_status_query"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "dd0177a3",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:25.685489Z",
+      "content": "Analyzing claims intake request: Claim status enna aachu? Claim number CLM-5521.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "3c359626",
+      "step_index": 1,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T03:22:25.686489Z",
+      "content": "Tool call: get_claim_status",
+      "tool_call": {
+        "tool_name": "get_claim_status",
+        "arguments": {
+          "claim_id": "CLM-5521"
+        },
+        "call_id": "call_status"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "c8930e57",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:25.686489Z",
+      "content": "Your claim CLM-5521 is currently APPROVED_PENDING_PAYOUT.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

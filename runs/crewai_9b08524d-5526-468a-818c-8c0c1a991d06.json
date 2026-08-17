@@ -1,0 +1,17 @@
+{
+  "session_id": "9b08524d-5526-468a-818c-8c0c1a991d06",
+  "agent_name": "MockCustomerSupportCrew",
+  "framework": "crewai",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.065842+00:00",
+  "end_time": "2026-08-17T02:37:41.065842+00:00",
+  "initial_input": {
+    "user_id": "cust_9981"
+  },
+  "final_output": null,
+  "turns": [],
+  "chaos_events": [],
+  "status": "FAILED",
+  "error_summary": "RuntimeError: HTTP 503: Service Unavailable",
+  "metadata": {}
+}

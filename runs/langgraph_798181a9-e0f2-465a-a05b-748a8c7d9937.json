@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "798181a9-e0f2-465a-a05b-748a8c7d9937",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:09:57.313695Z",
+    "ended_at": "2026-08-17T04:10:21.449376Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A3_01_relative_date_parso"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "0cc094ca",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:10:06.313011Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "18000",
+          "incident_date": "Parso mera car accident hua tha. (Please provide the exact date in YYYY-MM-DD format)",
+          "description": "car accident",
+          "policy_id": "POL-1005"
+        },
+        "call_id": "66720f19-5689-4903-b881-467c7ec8f722"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "ebc6d09c",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:10:06.316495Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-2707\", \"policy_id\": \"POL-1005\", \"incident_date\": \"Parso mera car accident hua tha. (Please provide the exact date in YYYY-MM-DD format)\", \"amount\": 18000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "0eab7525",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:10:21.449376Z",
+      "content": "Aapka car accident claim POL-1005 ke liye successfully create kiya gaya hai. Claim ki sthiti ab \"UNDER_REVIEW\" mein hai. Kripya apne incident ke exact date ko provide karein taaki hum aapka claim aur aur adhikar samay par samajh sakein.\n\nPlease provide the exact date of the incident in YYYY-MM-DD format so that we can review your claim further.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

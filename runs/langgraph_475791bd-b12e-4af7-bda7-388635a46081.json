@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "475791bd-b12e-4af7-bda7-388635a46081",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 1.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "lookup_policy"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:22:05.904750Z",
+    "ended_at": "2026-08-17T03:22:05.904750Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E2_02_empty_dict_policy_lookup"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "ebc72dde",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.904750Z",
+      "content": "Analyzing claims intake request: Policy POL-5003 details dekh kar batao.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "6acb1b65",
+      "step_index": 1,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T03:22:05.904750Z",
+      "content": "Tool call: lookup_policy",
+      "tool_call": {
+        "tool_name": "lookup_policy",
+        "arguments": {
+          "policy_id": "POL-5003"
+        },
+        "call_id": "call_lookup"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "5f3aa08a",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.904750Z",
+      "content": "Policy POL-5003 details found for Rajesh Sharma.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

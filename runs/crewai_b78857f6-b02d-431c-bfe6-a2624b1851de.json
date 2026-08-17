@@ -1,0 +1,70 @@
+{
+  "session_id": "b78857f6-b02d-431c-bfe6-a2624b1851de",
+  "agent_name": "MockCustomerSupportCrew",
+  "framework": "crewai",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.064844+00:00",
+  "end_time": "2026-08-17T02:37:41.064844+00:00",
+  "initial_input": {
+    "user_id": "cust_9981"
+  },
+  "final_output": "Crew completed successfully for input: {'user_id': 'cust_9981'}",
+  "turns": [
+    {
+      "turn_id": "5fbf9c80-9d3f-4596-b498-cc3155104f01",
+      "step_index": 1,
+      "actor_name": "crew_execution",
+      "agent_message": "Crew completed successfully for input: {'user_id': 'cust_9981'}",
+      "tool_calls": [
+        {
+          "call_id": "355a26ac-9d8a-4c7f-a191-84e49766e71b",
+          "tool_name": "database_lookup",
+          "tool_input": {
+            "args": "()",
+            "kwargs": {
+              "user_id": "cust_9981",
+              "field": "status"
+            }
+          },
+          "tool_output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": ",
+          "error": null,
+          "execution_time_ms": 0.03640000068116933,
+          "chaos_event": {
+            "event_id": "50b3ccac-4f8f-424b-968b-e96f0b8fd88f",
+            "chaos_type": "SCHEMA_ERROR",
+            "target": "database_lookup",
+            "injected_payload": {
+              "output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": "
+            },
+            "original_payload": {
+              "output": "{'status': 'ok', 'user_id': 'cust_9981', 'field': 'status', 'value': 1500}"
+            },
+            "timestamp": "2026-08-17T02:37:41.064844+00:00"
+          },
+          "timestamp": "2026-08-17T02:37:41.064844+00:00"
+        }
+      ],
+      "state_snapshot": {
+        "raw": "Crew completed successfully for input: {'user_id': 'cust_9981'}"
+      },
+      "timestamp": "2026-08-17T02:37:41.064844+00:00"
+    }
+  ],
+  "chaos_events": [
+    {
+      "event_id": "50b3ccac-4f8f-424b-968b-e96f0b8fd88f",
+      "chaos_type": "SCHEMA_ERROR",
+      "target": "database_lookup",
+      "injected_payload": {
+        "output": "{\"status\": \"partial_failure\", \"data\": null, \"broken_syntax\": "
+      },
+      "original_payload": {
+        "output": "{'status': 'ok', 'user_id': 'cust_9981', 'field': 'status', 'value': 1500}"
+      },
+      "timestamp": "2026-08-17T02:37:41.064844+00:00"
+    }
+  ],
+  "status": "SUCCESS",
+  "error_summary": null,
+  "metadata": {}
+}

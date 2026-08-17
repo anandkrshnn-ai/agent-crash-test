@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "9390c335-623f-478c-ad76-0abe256f361c",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:03.219154Z",
+    "ended_at": "2026-08-17T03:21:03.219154Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C3_01_devanagari_name_english_policy"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "7261707d",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:03.219154Z",
+      "content": "Analyzing claims intake request: \u092e\u0947\u0930\u093e \u0928\u093e\u092e \u0930\u093e\u091c\u0947\u0936 \u0936\u0930\u094d\u092e\u093e \u0939\u0948. Policy POL-3004 lookup karke details batao.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "d47aae49",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:03.219154Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

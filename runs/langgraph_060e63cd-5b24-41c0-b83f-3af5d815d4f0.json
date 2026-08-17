@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "060e63cd-5b24-41c0-b83f-3af5d815d4f0",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:22:05.883292Z",
+    "ended_at": "2026-08-17T03:22:05.883292Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C4_02_code_mix_language_switching"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "9dd4a3eb",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.883292Z",
+      "content": "Analyzing claims intake request: I need help regarding my insurance claim. Policy number POL-3007 hai, date 2026-07-02, amount 12000.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "8e5557a6",
+      "step_index": 1,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T03:22:05.883292Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "policy_id": "POL-3007",
+          "incident_date": "2026-07-02",
+          "amount": 12000.0
+        },
+        "call_id": "call_create"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "add4f9d2",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:22:05.883292Z",
+      "content": "Claim registered successfully: CLM-5009.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

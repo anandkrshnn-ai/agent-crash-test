@@ -1,0 +1,32 @@
+{
+  "session_id": "906f8969-2b7e-4735-8829-cd2605f94b14",
+  "agent_name": "MockCustomerSupportCrew",
+  "framework": "crewai",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.063858+00:00",
+  "end_time": "2026-08-17T02:37:41.063858+00:00",
+  "initial_input": {
+    "user_id": "cust_9981"
+  },
+  "final_output": null,
+  "turns": [],
+  "chaos_events": [
+    {
+      "event_id": "611492b4-5027-49af-b400-3e60119eaf8b",
+      "chaos_type": "MALFORMED_ARGS",
+      "target": "database_lookup",
+      "injected_payload": {
+        "field": "status",
+        "user_id_corrupted": "cust_9981"
+      },
+      "original_payload": {
+        "user_id": "cust_9981",
+        "field": "status"
+      },
+      "timestamp": "2026-08-17T02:37:41.063858+00:00"
+    }
+  ],
+  "status": "FAILED",
+  "error_summary": "TypeError: MockTool.__call__() got an unexpected keyword argument 'user_id_corrupted'",
+  "metadata": {}
+}

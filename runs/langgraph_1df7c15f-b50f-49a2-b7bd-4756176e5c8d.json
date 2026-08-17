@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "session_id": "1df7c15f-b50f-49a2-b7bd-4756176e5c8d",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 1.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "lookup_policy"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:21:03.239405Z",
+    "ended_at": "2026-08-17T03:21:03.239405Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E2_02_empty_dict_policy_lookup"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "7175fc2c",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:03.239405Z",
+      "content": "Analyzing claims intake request: Policy POL-5003 details dekh kar batao.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "70512115",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:21:03.239405Z",
+      "content": "Claim amount must be strictly positive.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

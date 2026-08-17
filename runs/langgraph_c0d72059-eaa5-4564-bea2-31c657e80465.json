@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "session_id": "c0d72059-eaa5-4564-bea2-31c657e80465",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:14:33.974777Z",
+    "ended_at": "2026-08-17T04:14:46.838017Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C1_01_hinglish_status_check"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "0ceb3b8c",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:14:39.412132Z",
+      "content": "Tool call: get_claim_status",
+      "tool_call": {
+        "tool_name": "get_claim_status",
+        "arguments": {
+          "claim_id": "CLM-9912"
+        },
+        "call_id": "3837c240-c99d-47d2-9bb0-614e8fc65dcf"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "1bdb9fae",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:14:39.416563Z",
+      "content": "{\"status\": \"success\", \"claim_id\": \"CLM-9912\", \"current_status\": \"APPROVED_PENDING_PAYOUT\", \"approved_amount\": 35000.0}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "ce88485a",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:14:46.838017Z",
+      "content": "Apni claim ki status hai CLM-9912, policy POL-3001 ke liye. Claim ki status APPROVED_PENDING_PAYOUT hai aur approved amount 35000.00 hai.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "session_id": "e961cff8-cf57-4d4c-b9a6-e3d5fa5a03ea",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 1.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "get_claim_status"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:20:52.466995Z",
+    "ended_at": "2026-08-17T03:20:52.466995Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E2_01_schema_corruption_on_status_check"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "e3ff4baf",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.466995Z",
+      "content": "{'content': 'Analyzing claims intake request: Mera claim status check karo CLM-7711.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "3b64f4d4",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.466995Z",
+      "content": "{'content': 'Claim amount must be strictly positive.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "77b7aee9-21ac-4df0-b135-20b4102c9445",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:14:48.007388Z",
+    "ended_at": "2026-08-17T04:15:11.300449Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C1_02_hinglish_claim_intake"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "4159e8d6",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:14:57.027887Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "policy_id": "POL-3002",
+          "amount": "35000",
+          "incident_date": "2026-05-19",
+          "description": "meri gadi thuk gayi"
+        },
+        "call_id": "f8a86cc8-21bb-4c1c-9efe-c8cb08a84f21"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "31db6d6e",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:14:57.031646Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-1148\", \"policy_id\": \"POL-3002\", \"incident_date\": \"2026-05-19\", \"amount\": 35000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "afe651df",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:15:11.300449Z",
+      "content": "Apki gadi ki thukavat ke liye ek claim banaya gaya hai. Claim ki ID CLM-1148 hai. Ab hum apne claim ki status ko check kar sakte hain.\n\nAp apne claim ki status ko check karne ke liye command \"get_claim_status CLM-1148\" ka upyog kar sakte hain.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

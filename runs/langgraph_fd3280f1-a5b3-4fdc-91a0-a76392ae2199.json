@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "fd3280f1-a5b3-4fdc-91a0-a76392ae2199",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:18:07.477016Z",
+    "ended_at": "2026-08-17T04:18:24.158773Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "D_claims_field_chaos",
+      "D1_02_missing_incident_date"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "4bd199f8",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:18:13.682482Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "22000",
+          "incident_date": "",
+          "policy_id": "POL-4001",
+          "description": ""
+        },
+        "call_id": "b70a268e-cd4f-42cc-a826-9c5223b835c7"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "fc0a15ce",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:18:13.685660Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-9561\", \"policy_id\": \"POL-4001\", \"incident_date\": \"\", \"amount\": 22000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "2bf94f5a",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:18:24.158773Z",
+      "content": "The claim for policy POL-4001 has been successfully created with claim ID CLM-9561. The claim amount is \u20b922,000.00. However, the incident date is still missing. Could you please provide the incident date when the damage occurred? Once I have this information, I can update the claim status.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

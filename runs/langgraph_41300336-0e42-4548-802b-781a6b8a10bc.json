@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "session_id": "41300336-0e42-4548-802b-781a6b8a10bc",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 1.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "create_claim"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:20:52.469993Z",
+    "ended_at": "2026-08-17T03:20:52.469993Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E3_01_malformed_args_argument_corruption"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "6974f69d",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.469993Z",
+      "content": "{'content': 'Analyzing claims intake request: File claim POL-5004 on 2026-06-15 for 32000.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "5270f5f1",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.469993Z",
+      "content": "{'content': 'Claim amount must be strictly positive.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "0871d3ee-38e2-483f-bc91-59b370d9c8c1",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:19:29.084580Z",
+    "ended_at": "2026-08-17T04:19:47.124159Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "D_claims_field_chaos",
+      "D3_01_duplicate_claim_intent"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "b5832ef1",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:19:36.199518Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": null,
+          "description": null,
+          "incident_date": "2024-01-01",
+          "policy_id": "POL-4005"
+        },
+        "call_id": "7d01ff8d-bef3-41b3-8e7c-4b4d8baa8b6e"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "64a5723f",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:19:36.202229Z",
+      "content": "Error invoking tool 'create_claim' with kwargs {'amount': None, 'description': None, 'incident_date': '2024-01-01', 'policy_id': 'POL-4005'} with error:\n amount: Input should be a valid number\ndescription: Input should be a valid string\n Please fix the error and try again.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "14d30e92",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:19:47.124159Z",
+      "content": "To submit the claim again, I'll need to provide the required information. Can you please provide the amount and description of the incident that occurred? For example, what was the nature of the incident and how much did it cost?\n\nOnce I have this information, I can help you submit the claim again.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

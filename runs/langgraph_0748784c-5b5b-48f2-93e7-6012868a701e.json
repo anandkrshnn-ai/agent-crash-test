@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "0748784c-5b5b-48f2-93e7-6012868a701e",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:13:50.752914Z",
+    "ended_at": "2026-08-17T04:14:13.443904Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "B_number_amount_formats",
+      "B3_02_european_decimal_confusion"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "9908f7b4",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:14:00.750111Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "15.000",
+          "incident_date": "2026-04-18",
+          "description": "medical reimbursement",
+          "policy_id": "POL-2007"
+        },
+        "call_id": "e6b77358-bc31-4d73-b09c-5e563dc88422"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "6f95781b",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:14:00.757693Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-9062\", \"policy_id\": \"POL-2007\", \"incident_date\": \"2026-04-18\", \"amount\": 15.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "1654ff3c",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:14:13.443904Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-9062. The status of your claim is currently UNDER_REVIEW. We will review your claim and get back to you once the status is updated.\n\nIf you have any further questions or concerns, feel free to ask.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

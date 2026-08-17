@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "48a76ec6-c23a-47fd-8c80-19a4475af3ff",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:10:22.567140Z",
+    "ended_at": "2026-08-17T04:10:41.625546Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A3_02_relative_date_last_monday"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "4196c1a5",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:10:30.565505Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "12000",
+          "incident_date": "2023-09-04",
+          "description": "Water damage on last Monday",
+          "policy_id": "POL-1006"
+        },
+        "call_id": "27a6d0f9-ac6a-4e5f-91ea-f3349f21c30a"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "05b3a6f9",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:10:30.570062Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-0190\", \"policy_id\": \"POL-1006\", \"incident_date\": \"2023-09-04\", \"amount\": 12000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "5bf25e6d",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:10:41.625546Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-0190. Our team will review your claim and get back to you with an update on the status.\n\nTo check the status of your claim, you can use the get_claim_status tool with the claim ID CLM-0190.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

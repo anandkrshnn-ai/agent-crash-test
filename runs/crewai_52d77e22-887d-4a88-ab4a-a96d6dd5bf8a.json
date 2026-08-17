@@ -1,0 +1,51 @@
+{
+  "session_id": "52d77e22-887d-4a88-ab4a-a96d6dd5bf8a",
+  "agent_name": "MockCustomerSupportCrew",
+  "framework": "crewai",
+  "model_name": "unknown",
+  "start_time": "2026-08-17T02:37:41.061839+00:00",
+  "end_time": "2026-08-17T02:37:41.061839+00:00",
+  "initial_input": {
+    "user_id": "cust_9981"
+  },
+  "final_output": "Crew completed successfully for input: {'user_id': 'cust_9981'}",
+  "turns": [
+    {
+      "turn_id": "e6baea84-8c72-4c1e-a638-1f79948217cd",
+      "step_index": 1,
+      "actor_name": "crew_execution",
+      "agent_message": "Crew completed successfully for input: {'user_id': 'cust_9981'}",
+      "tool_calls": [
+        {
+          "call_id": "2fdb076c-18b1-4f94-b40a-be1de00ff246",
+          "tool_name": "database_lookup",
+          "tool_input": {
+            "args": "()",
+            "kwargs": {
+              "user_id": "cust_9981",
+              "field": "status"
+            }
+          },
+          "tool_output": {
+            "status": "ok",
+            "user_id": "cust_9981",
+            "field": "status",
+            "value": 1500
+          },
+          "error": null,
+          "execution_time_ms": 0.005399997462518513,
+          "chaos_event": null,
+          "timestamp": "2026-08-17T02:37:41.061839+00:00"
+        }
+      ],
+      "state_snapshot": {
+        "raw": "Crew completed successfully for input: {'user_id': 'cust_9981'}"
+      },
+      "timestamp": "2026-08-17T02:37:41.061839+00:00"
+    }
+  ],
+  "chaos_events": [],
+  "status": "SUCCESS",
+  "error_summary": null,
+  "metadata": {}
+}

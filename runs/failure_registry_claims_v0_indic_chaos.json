@@ -1,0 +1,797 @@
+{
+  "pack_id": "claims_v0_indic_chaos",
+  "timestamp": "2026-08-17T04:22:02.757221+00:00",
+  "framework": "langgraph",
+  "total_scenarios": 38,
+  "total_passed": 22,
+  "overall_pass_rate_pct": 57.89,
+  "total_silent_wrong_states": 14,
+  "family_breakdown": {
+    "A_date_time_ambiguity": {
+      "total": 8,
+      "passed": 2,
+      "silent_wrong_states": 6,
+      "contract_breaches": 6
+    },
+    "B_number_amount_formats": {
+      "total": 8,
+      "passed": 4,
+      "silent_wrong_states": 2,
+      "contract_breaches": 2
+    },
+    "C_code_mixed_instruction": {
+      "total": 8,
+      "passed": 8,
+      "silent_wrong_states": 0,
+      "contract_breaches": 0
+    },
+    "D_claims_field_chaos": {
+      "total": 8,
+      "passed": 2,
+      "silent_wrong_states": 6,
+      "contract_breaches": 6
+    },
+    "E_recovery_and_loop_pressure": {
+      "total": 6,
+      "passed": 6,
+      "silent_wrong_states": 0,
+      "contract_breaches": 0
+    }
+  },
+  "scorecards": [
+    {
+      "scenario_id": "A1_01_ddmm_ambiguous_slash",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A1_02_ddmm_unambiguous_high_day",
+      "family": "A_date_time_ambiguity",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A2_01_mixed_date_across_turns",
+      "family": "A_date_time_ambiguity",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A2_02_short_year_hyphen_format",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A3_01_relative_date_parso",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A3_02_relative_date_last_monday",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A3_03_kal_shaam_hinglish",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "A4_01_future_incident_date",
+      "family": "A_date_time_ambiguity",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed tools ['create_claim'] on invalid input instead of rejecting."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B1_01_amount_in_lakhs_decimal",
+      "family": "B_number_amount_formats",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B1_02_amount_in_crores_symbol",
+      "family": "B_number_amount_formats",
+      "passed": false,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": false,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SLOT_VALUE_MISMATCH: Slot 'amount' expected 12000000.0, got 120000000."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B1_03_amount_in_words_lakh",
+      "family": "B_number_amount_formats",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B2_01_devanagari_numerals",
+      "family": "B_number_amount_formats",
+      "passed": false,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": false,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SLOT_VALUE_MISMATCH: Slot 'amount' expected 50000.0, got 5000000."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B2_02_mixed_rupee_words_and_number",
+      "family": "B_number_amount_formats",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B3_01_indian_comma_system",
+      "family": "B_number_amount_formats",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B3_02_european_decimal_confusion",
+      "family": "B_number_amount_formats",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "B3_03_negative_amount_claim",
+      "family": "B_number_amount_formats",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed tools ['create_claim'] on invalid input instead of rejecting."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C1_01_hinglish_status_check",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "get_claim_status"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C1_02_hinglish_claim_intake",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C2_01_tanglish_accident_update",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C2_02_tanglish_status_query",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "get_claim_status"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C3_01_devanagari_name_english_policy",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "lookup_policy"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C3_02_tamil_script_name_policy_id",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "lookup_policy"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C4_01_multiturn_hinglish_contradiction",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "C4_02_code_mix_language_switching",
+      "family": "C_code_mixed_instruction",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D1_01_missing_policy_number",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D1_02_missing_incident_date",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D1_03_missing_claim_amount",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D2_01_contradictory_amount_user_vs_form",
+      "family": "D_claims_field_chaos",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D2_02_contradictory_dates_turn_update",
+      "family": "D_claims_field_chaos",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D3_01_duplicate_claim_intent",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D4_01_invalid_policy_format",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed 'create_claim' instead of asking clarifying question."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "D4_02_zero_amount_claim",
+      "family": "D_claims_field_chaos",
+      "passed": false,
+      "contract_adherence": false,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": true,
+      "recovery_passed": true,
+      "failure_reasons": [
+        "SILENT_WRONG_STATE: Agent executed tools ['create_claim'] on invalid input instead of rejecting."
+      ],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E1_01_policy_lookup_timeout_retry",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "lookup_policy"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E1_02_claim_service_503_informative_message",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E2_01_schema_corruption_on_status_check",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "get_claim_status"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E2_02_empty_dict_policy_lookup",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "lookup_policy"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E3_01_malformed_args_argument_corruption",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "create_claim"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    },
+    {
+      "scenario_id": "E3_02_multiple_tool_failures_then_graceful_stop",
+      "family": "E_recovery_and_loop_pressure",
+      "passed": true,
+      "contract_adherence": true,
+      "tool_selection_passed": true,
+      "slot_fidelity_passed": true,
+      "silent_wrong_state_detected": false,
+      "recovery_passed": true,
+      "failure_reasons": [],
+      "reproduction_summary": {
+        "steps_count": 3,
+        "tools_called": [
+          "get_claim_status"
+        ],
+        "success": true,
+        "chaos_events_count": 0
+      }
+    }
+  ]
+}

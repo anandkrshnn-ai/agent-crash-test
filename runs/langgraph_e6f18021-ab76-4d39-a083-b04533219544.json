@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "session_id": "e6f18021-ab76-4d39-a083-b04533219544",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T03:20:52.453990Z",
+    "ended_at": "2026-08-17T03:20:52.453990Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 2,
+    "total_tool_calls": 0,
+    "tags": [
+      "D_claims_field_chaos",
+      "D1_01_missing_policy_number"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "08296fb5",
+      "step_index": 0,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.453990Z",
+      "content": "{'content': 'Analyzing claims intake request: I had a car crash on 2026-05-10, damage is 30000. Please file my claim.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "planner"
+      }
+    },
+    {
+      "step_id": "ca81965b",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T03:20:52.453990Z",
+      "content": "{'content': 'Claim amount must be strictly positive.'}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "responder"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "afe48a96-6cf9-44ed-84c9-8f628fb58983",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:08:39.161102Z",
+    "ended_at": "2026-08-17T04:08:56.527390Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "A_date_time_ambiguity",
+      "A1_01_ddmm_ambiguous_slash"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "59ae814c",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:08:46.774963Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "15000",
+          "incident_date": "2026-03-04",
+          "description": "bike accident",
+          "policy_id": "POL-1001"
+        },
+        "call_id": "148e6bb9-905e-48a1-a478-8c0d6990a21d"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "c1423a9a",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:08:46.778740Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-2564\", \"policy_id\": \"POL-1001\", \"incident_date\": \"2026-03-04\", \"amount\": 15000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "139f1c6a",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:08:56.527390Z",
+      "content": "The claim for policy POL-1001 has been successfully created. The claim ID is CLM-2564. The claim status is currently UNDER_REVIEW. We will review the claim and get back to you with an update on the status.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

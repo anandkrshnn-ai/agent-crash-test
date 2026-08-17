@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "39ed3854-44c3-4b27-8c82-7ba920308f37",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:19:48.252801Z",
+    "ended_at": "2026-08-17T04:20:07.588141Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "D_claims_field_chaos",
+      "D4_01_invalid_policy_format"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "ccc9a1e0",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:19:55.613624Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "10000",
+          "incident_date": "2026-05-01",
+          "policy_id": "ABC-INVALID-XYZ"
+        },
+        "call_id": "449f7980-e98b-4817-a6a1-e5f0cd82d633"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "b8bc64d8",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:19:55.618087Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-8390\", \"policy_id\": \"ABC-INVALID-XYZ\", \"incident_date\": \"2026-05-01\", \"amount\": 10000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "4472eff0",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:20:07.588141Z",
+      "content": "The claim for policy ABC-INVALID-XYZ has been created successfully. The claim ID is CLM-8390. The claim is currently under review. Please note that the policy ID is invalid, and we will need to verify this before proceeding with the claim. Can you please confirm the correct policy ID for ABC-INVALID-XYZ?",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

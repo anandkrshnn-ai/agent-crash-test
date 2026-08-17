@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "session_id": "14acdc6b-f78b-4d13-93dc-9017fcf198f3",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": false,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 0.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 8.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:16:55.999935Z",
+    "ended_at": "2026-08-17T04:17:18.419250Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "C_code_mixed_instruction",
+      "C4_01_multiturn_hinglish_contradiction"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "c6e1aa05",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:17:04.274138Z",
+      "content": "Tool call: create_claim",
+      "tool_call": {
+        "tool_name": "create_claim",
+        "arguments": {
+          "amount": "80000",
+          "incident_date": "2026-04-15",
+          "description": "Repair estimate from showroom",
+          "policy_id": "POL-3006"
+        },
+        "call_id": "54ae75fa-8898-4230-ac76-4d51a98d6e09"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "8383df69",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:17:04.277819Z",
+      "content": "{\"status\": \"created\", \"claim_id\": \"CLM-1585\", \"policy_id\": \"POL-3006\", \"incident_date\": \"2026-04-15\", \"amount\": 80000.0, \"claim_status\": \"UNDER_REVIEW\"}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "02c048ad",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:17:18.419250Z",
+      "content": "Your claim has been successfully created. The claim ID is CLM-1585. Our team will review the claim and get back to you with an update on the status.\n\nPlease note that the amount of your claim has been updated to \u20b980,000 due to the repair estimate from the showroom. We will investigate the claim and provide an update on the status soon.\n\nIf you have any further questions or concerns, feel free to ask.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}

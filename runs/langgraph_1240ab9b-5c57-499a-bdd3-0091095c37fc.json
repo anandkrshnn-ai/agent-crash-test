@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "session_id": "1240ab9b-5c57-499a-bdd3-0091095c37fc",
+    "framework": "langgraph",
+    "model": "deterministic_baseline",
+    "agent_name": null,
+    "chaos_config": {
+      "enabled": true,
+      "tool_timeout_prob": 0.0,
+      "malformed_arguments_prob": 0.0,
+      "schema_error_prob": 1.0,
+      "tool_error_prob": 0.0,
+      "partial_result_prob": 0.0,
+      "delayed_result_prob": 0.0,
+      "timeout_seconds": 1.0,
+      "delay_seconds": 3.0,
+      "max_chaos_per_run": 3,
+      "target_tools": [
+        "get_claim_status"
+      ],
+      "exclude_tools": []
+    },
+    "started_at": "2026-08-17T04:20:56.608574Z",
+    "ended_at": "2026-08-17T04:21:07.762231Z",
+    "success": true,
+    "final_answer": null,
+    "error": null,
+    "total_steps": 3,
+    "total_tool_calls": 1,
+    "tags": [
+      "E_recovery_and_loop_pressure",
+      "E2_01_schema_corruption_on_status_check"
+    ]
+  },
+  "steps": [
+    {
+      "step_id": "1ac1708c",
+      "step_index": 0,
+      "step_type": "tool_call",
+      "timestamp": "2026-08-17T04:21:01.547911Z",
+      "content": "Tool call: get_claim_status",
+      "tool_call": {
+        "tool_name": "get_claim_status",
+        "arguments": {
+          "claim_id": "CLM-7711"
+        },
+        "call_id": "8949a58c-ff4f-4bb1-b962-07c4a6a67493"
+      },
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    },
+    {
+      "step_id": "4600292f",
+      "step_index": 1,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:21:01.551798Z",
+      "content": "{\"status\": \"success\", \"claim_id\": \"CLM-7711\", \"current_status\": \"APPROVED_PENDING_PAYOUT\", \"approved_amount\": 35000.0}",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "tools"
+      }
+    },
+    {
+      "step_id": "c257e38c",
+      "step_index": 2,
+      "step_type": "agent_thought",
+      "timestamp": "2026-08-17T04:21:07.762231Z",
+      "content": "Apni claim ki status hai CLM-7711. Atah, iski current status APPROVED_PENDING_PAYOUT hai aur approved amount 35000.00 hai.",
+      "tool_call": null,
+      "tool_result": null,
+      "chaos": null,
+      "state_snapshot": null,
+      "metadata": {
+        "node": "agent"
+      }
+    }
+  ]
+}
