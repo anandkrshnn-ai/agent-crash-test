@@ -145,10 +145,15 @@ class ScenarioPackRunner:
             "scorecards": [s.model_dump() for s in scorecards],
         }
 
-        # Save Failure Registry Report
+        # Save Failure Registry Report JSON
         report_file = self.output_dir / f"failure_registry_{pack_id}.json"
         with open(report_file, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2)
+
+        # Generate Markdown Summary with Top Annotated Failure Transcripts
+        from harness.reporter import FailureReportGenerator
+        md_file = self.output_dir / f"report_{pack_id}.md"
+        FailureReportGenerator.generate_markdown_report(report, str(md_file))
 
         if verbose:
             print("\n" + "=" * 80)
@@ -161,8 +166,10 @@ class ScenarioPackRunner:
                 p_pct = (stats["passed"] / stats["total"] * 100.0) if stats["total"] > 0 else 0.0
                 print(f"{fam:<35} | {stats['total']:<6} | {stats['passed']:<6} | {p_pct:<7.1f}% | {stats['silent_wrong_states']}")
             print("=" * 80)
-            print(f"[DONE] Failure Registry exported to: {report_file}")
+            print(f"[DONE] Failure Registry JSON: {report_file}")
+            print(f"[DONE] Annotated Report Markdown: {md_file}")
             print("=" * 80)
+
 
         return report
 
