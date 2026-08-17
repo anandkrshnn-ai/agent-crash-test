@@ -1,0 +1,21 @@
+# Core
+pydantic>=2.7
+python-dotenv>=1.0
+
+# Frameworks
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+crewai>=0.80.0
+
+# Optional but useful for open models
+langchain-ollama>=0.2.0
+# or litellm if preferred later
+
+# Testing
+pytest>=8.0
+pytest-asyncio>=0.23
+
+# Utils
+tenacity>=8.0
+rich>=13.0
