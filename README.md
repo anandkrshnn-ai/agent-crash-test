@@ -21,7 +21,7 @@ pip install -r requirements.txt
 pytest tests/ -v
 
 # Minimal LangGraph demo (deterministic, no LLM key required)
-python -m examples.langgraph_math
+PYTHONPATH=. python -m examples.langgraph_math
 ```
 
 Trajectories are written to `runs/*.json`.
@@ -34,7 +34,9 @@ agent-crash-test/
 ├── adapters/        # LangGraphAdapter, CrewAIAdapter
 ├── harness/         # Trajectory models + CrashTestRunner
 ├── examples/        # Ready-to-run agents
+├── docs/            # Scenario taxonomy (vertical + code-mixed)
 ├── tests/
+├── LICENSE          # MIT
 └── requirements.txt
 ```
 
@@ -57,10 +59,11 @@ All probabilities and a hard `max_chaos_per_run` cap are configurable via `Chaos
 2. Add more chaos dimensions (contradictory instructions, state corruption, multi-agent contention).
 3. Expand the failure taxonomy and auto-label trajectories.
 4. Add Ollama / local open-model examples.
-5. Publish a first public “Open Agent Crash Test Report”.
+5. **First public report (revised):** map failure surfaces on *vertical + code-mixed* scenarios — not a framework bake-off. Target: production-shaped Indian enterprise agents (claims intake, support tickets) under Hinglish/Tanglish input noise, ambiguous dates, and regional number formats. See `docs/scenario-taxonomy.md`.
 
 ## Design Notes
 
 - Chaos is applied at the **tool boundary** so the same injector works across frameworks.
 - Adapters are deliberately thin; they only need to (a) wrap tools and (b) turn framework events into `TrajectoryStep`s.
 - The trajectory schema is the long-term contract – keep it stable.
+- License: MIT (see `LICENSE`).
