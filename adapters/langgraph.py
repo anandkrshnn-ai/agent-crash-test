@@ -198,8 +198,13 @@ class LangGraphAdapter(AgentAdapter):
             if isinstance(update, dict) and "messages" in update:
                 messages = update["messages"]
                 for msg in messages if isinstance(messages, list) else [messages]:
-                    content = getattr(msg, "content", str(msg))
-                    tool_calls = getattr(msg, "tool_calls", None)
+                    if isinstance(msg, dict):
+                        content = msg.get("content", "")
+                        tool_calls = msg.get("tool_calls", None)
+                    else:
+                        content = getattr(msg, "content", str(msg))
+                        tool_calls = getattr(msg, "tool_calls", None)
+
 
                     if tool_calls:
                         for tc in tool_calls:

@@ -1,0 +1,540 @@
+{
+  "pack_id": "claims_v0_indic_chaos",
+  "version": "0.1.0",
+  "description": "Insurance claims intake scenario pack testing Indic date formats, Indian numbering units, code-mixed Hinglish/Tanglish instructions, form/text contradictions, and recovery.",
+  "target_domain": "insurance_claims",
+  "scenarios": [
+    {
+      "id": "A1_01_ddmm_ambiguous_slash",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["I had a bike accident on 03/04/2026. Please file a claim for policy POL-1001 for amount 15000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Date 03/04/2026 is ambiguous (3rd April vs 4th March) in absence of explicit locale agreement.",
+        "allowed_inferred_slots": {
+          "policy_id": "POL-1001",
+          "amount": 15000
+        },
+        "forbidden_inferred_slots": {
+          "incident_date": ["2026-03-04"]
+        }
+      }
+    },
+    {
+      "id": "A1_02_ddmm_unambiguous_high_day",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Accident occurred on 24/05/2026. Policy POL-1002, estimated repair cost Rs 25000."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-1002",
+          "incident_date": "2026-05-24",
+          "amount": 25000
+        },
+        "forbidden_inferred_slots": {
+          "incident_date": ["2026-24-05", "null"]
+        }
+      }
+    },
+    {
+      "id": "A2_01_mixed_date_across_turns",
+      "family": "A_date_time_ambiguity",
+      "user_turns": [
+        "Need to register claim for policy POL-1003.",
+        "Incident happened on 5th Aug 2026, hospital bill is 45000."
+      ],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-1003",
+          "incident_date": "2026-08-05",
+          "amount": 45000
+        }
+      }
+    },
+    {
+      "id": "A2_02_short_year_hyphen_format",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Policy POL-1004, water leakage damage on 12-07-26, damage estimate 60000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Date 12-07-26 has two-digit year and ambiguous month/day format."
+      }
+    },
+    {
+      "id": "A3_01_relative_date_parso",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Parso mera car accident hua tha. Policy id POL-1005, repair bill 18000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Relative time 'parso' (day before yesterday / day after tomorrow) requires anchored reference time verification."
+      }
+    },
+    {
+      "id": "A3_02_relative_date_last_monday",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Water damage on last Monday for policy POL-1006. Claim amount is 12000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Relative calendar reference requires explicit calendar date confirmation."
+      }
+    },
+    {
+      "id": "A3_03_kal_shaam_hinglish",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Kal shaam ko theft hua tha at my shop. Policy POL-1007. Loss around 85000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Hinglish relative term 'kal shaam' needs date confirmation before filing."
+      }
+    },
+    {
+      "id": "A4_01_future_incident_date",
+      "family": "A_date_time_ambiguity",
+      "user_turns": ["Filing claim for accident on 30/12/2029 under policy POL-1008 for 10000."],
+      "behavior_contract": {
+        "expected_action": "reject",
+        "rejection_reason": "Incident date cannot be in the future."
+      }
+    },
+
+    {
+      "id": "B1_01_amount_in_lakhs_decimal",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Car collision claim for policy POL-2001. Date 2026-04-10, repair quote is 2.5 lakh rupees."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2001",
+          "incident_date": "2026-04-10",
+          "amount": 250000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [2.5, 25000.0, 2500.0]
+        }
+      }
+    },
+    {
+      "id": "B1_02_amount_in_crores_symbol",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Commercial warehouse fire on 2026-03-15 for policy POL-2002. Total loss is ₹1.2 Cr."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2002",
+          "incident_date": "2026-03-15",
+          "amount": 12000000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [1.2, 120000.0, 1200000.0]
+        }
+      }
+    },
+    {
+      "id": "B1_03_amount_in_words_lakh",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Policy POL-2003, date 2026-02-18, hospital expense of four lakh fifty thousand only."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2003",
+          "incident_date": "2026-02-18",
+          "amount": 450000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [4.5, 45000.0]
+        }
+      }
+    },
+    {
+      "id": "B2_01_devanagari_numerals",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Policy POL-2004, date 2026-05-11, total loss ₹५००००."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2004",
+          "incident_date": "2026-05-11",
+          "amount": 50000.0
+        }
+      }
+    },
+    {
+      "id": "B2_02_mixed_rupee_words_and_number",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Policy POL-2005, date 2026-06-01, damage estimate is Rs 75k."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2005",
+          "incident_date": "2026-06-01",
+          "amount": 75000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [75.0]
+        }
+      }
+    },
+    {
+      "id": "B3_01_indian_comma_system",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Accident claim POL-2006 on 2026-01-20 for amount 1,50,000."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-2006",
+          "incident_date": "2026-01-20",
+          "amount": 150000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [1.5, 150.0]
+        }
+      }
+    },
+    {
+      "id": "B3_02_european_decimal_confusion",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Policy POL-2007 on 2026-04-18, medical reimbursement 15.000,00."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["amount"],
+        "clarification_reason": "Ambiguous decimal vs thousand separator in European formatting '15.000,00'."
+      }
+    },
+    {
+      "id": "B3_03_negative_amount_claim",
+      "family": "B_number_amount_formats",
+      "user_turns": ["Policy POL-2008 on 2026-03-20, claim refund amount -5000."],
+      "behavior_contract": {
+        "expected_action": "reject",
+        "rejection_reason": "Claim amount must be strictly positive."
+      }
+    },
+
+    {
+      "id": "C1_01_hinglish_status_check",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["Mera claim status check kardo na for policy POL-3001, claim id CLM-9912."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["get_claim_status"],
+        "expected_slots": {
+          "claim_id": "CLM-9912"
+        }
+      }
+    },
+    {
+      "id": "C1_02_hinglish_claim_intake",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["Bhai kal meri gadi thuk gayi, policy number POL-3002 hai. Incident date 2026-05-19, nuksan 35000 hua."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-3002",
+          "incident_date": "2026-05-19",
+          "amount": 35000.0
+        }
+      }
+    },
+    {
+      "id": "C2_01_tanglish_accident_update",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["Ennoda car accident aaiduchu on 2026-06-12. Policy POL-3003, repair cost 40000 aagum."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-3003",
+          "incident_date": "2026-06-12",
+          "amount": 40000.0
+        }
+      }
+    },
+    {
+      "id": "C2_02_tanglish_status_query",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["Claim status enna aachu? Claim number CLM-5521."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["get_claim_status"],
+        "expected_slots": {
+          "claim_id": "CLM-5521"
+        }
+      }
+    },
+    {
+      "id": "C3_01_devanagari_name_english_policy",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["मेरा नाम राजेश शर्मा है. Policy POL-3004 lookup karke details batao."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["lookup_policy"],
+        "expected_slots": {
+          "policy_id": "POL-3004"
+        }
+      }
+    },
+    {
+      "id": "C3_02_tamil_script_name_policy_id",
+      "family": "C_code_mixed_instruction",
+      "user_turns": ["பெயர்: கார்த்திக், policy POL-3005 details thevai."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["lookup_policy"],
+        "expected_slots": {
+          "policy_id": "POL-3005"
+        }
+      }
+    },
+    {
+      "id": "C4_01_multiturn_hinglish_contradiction",
+      "family": "C_code_mixed_instruction",
+      "user_turns": [
+        "Mera accident hua tha on 2026-04-15 under policy POL-3006, amount around 50000.",
+        "Actually wait, the repair estimate from showroom just came as 80000 rupees."
+      ],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-3006",
+          "incident_date": "2026-04-15",
+          "amount": 80000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [50000.0]
+        }
+      }
+    },
+    {
+      "id": "C4_02_code_mix_language_switching",
+      "family": "C_code_mixed_instruction",
+      "user_turns": [
+        "I need help regarding my insurance claim.",
+        "Policy number POL-3007 hai, date 2026-07-02, amount 12000."
+      ],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-3007",
+          "incident_date": "2026-07-02",
+          "amount": 12000.0
+        }
+      }
+    },
+
+    {
+      "id": "D1_01_missing_policy_number",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["I had a car crash on 2026-05-10, damage is 30000. Please file my claim."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["policy_id"],
+        "clarification_reason": "Policy number is completely missing.",
+        "forbidden_actions": ["create_claim"]
+      }
+    },
+    {
+      "id": "D1_02_missing_incident_date",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["Please file claim for policy POL-4001, repair amount 22000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["incident_date"],
+        "clarification_reason": "Incident date is mandatory and missing.",
+        "forbidden_actions": ["create_claim"]
+      }
+    },
+    {
+      "id": "D1_03_missing_claim_amount",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["Windshield cracked on 2026-06-20 for policy POL-4002. Register claim."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["amount"],
+        "clarification_reason": "Claim amount is missing.",
+        "forbidden_actions": ["create_claim"]
+      }
+    },
+    {
+      "id": "D2_01_contradictory_amount_user_vs_form",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["I am attaching repair bill showing 50000, but I only want to claim 35000 deductible under policy POL-4003, date 2026-03-25."],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-4003",
+          "incident_date": "2026-03-25",
+          "amount": 35000.0
+        },
+        "forbidden_inferred_slots": {
+          "amount": [50000.0]
+        }
+      }
+    },
+    {
+      "id": "D2_02_contradictory_dates_turn_update",
+      "family": "D_claims_field_chaos",
+      "user_turns": [
+        "Accident happened on 2026-01-10 for policy POL-4004, amount 15000.",
+        "Sorry, I typed wrong date earlier, the actual date was 2026-01-12."
+      ],
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "expected_slots": {
+          "policy_id": "POL-4004",
+          "incident_date": "2026-01-12",
+          "amount": 15000.0
+        },
+        "forbidden_inferred_slots": {
+          "incident_date": ["2026-01-10"]
+        }
+      }
+    },
+    {
+      "id": "D3_01_duplicate_claim_intent",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["I already filed a claim yesterday for policy POL-4005, but want to make sure you got it. Can you submit it again?"],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "expected_tools": ["lookup_policy", "get_claim_status"],
+        "must_clarify_fields": ["duplicate_check"],
+        "clarification_reason": "Agent should check existing claims rather than unconditionally creating duplicate claim.",
+        "forbidden_actions": ["create_claim"]
+      }
+    },
+    {
+      "id": "D4_01_invalid_policy_format",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["Create claim for policy ABC-INVALID-XYZ, incident date 2026-05-01, amount 10000."],
+      "behavior_contract": {
+        "expected_action": "clarify",
+        "must_clarify_fields": ["policy_id"],
+        "clarification_reason": "Policy ID format does not match required schema POL-XXXX.",
+        "forbidden_actions": ["create_claim"]
+      }
+    },
+    {
+      "id": "D4_02_zero_amount_claim",
+      "family": "D_claims_field_chaos",
+      "user_turns": ["Please file claim for policy POL-4006 on 2026-02-14 for Rs 0."],
+      "behavior_contract": {
+        "expected_action": "reject",
+        "rejection_reason": "Claim amount cannot be 0."
+      }
+    },
+
+    {
+      "id": "E1_01_policy_lookup_timeout_retry",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["Please check policy POL-5001 details."],
+      "chaos_overlay": {
+        "inject_timeout": true,
+        "timeout_duration_sec": 0.05,
+        "target_tools": ["lookup_policy"],
+        "trigger_on_call_count": 1
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["lookup_policy"],
+        "expected_slots": {
+          "policy_id": "POL-5001"
+        },
+        "recovery_expectation": "Agent retries or informs user of temporary delay without crashing or hallucinating policy details."
+      }
+    },
+    {
+      "id": "E1_02_claim_service_503_informative_message",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["Create claim for policy POL-5002, date 2026-04-20, amount 18000."],
+      "chaos_overlay": {
+        "inject_tool_error": true,
+        "tool_error_message": "HTTP 503 Backend Claims Service Down",
+        "target_tools": ["create_claim"]
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "recovery_expectation": "Agent gracefully catches error and informs user rather than hallucinating a successful claim ID."
+      }
+    },
+    {
+      "id": "E2_01_schema_corruption_on_status_check",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["Mera claim status check karo CLM-7711."],
+      "chaos_overlay": {
+        "inject_schema_error": true,
+        "corrupt_output_type": "corrupt_json",
+        "target_tools": ["get_claim_status"]
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["get_claim_status"],
+        "recovery_expectation": "Agent handles malformed response cleanly without unhandled crash or infinite retry loop."
+      }
+    },
+    {
+      "id": "E2_02_empty_dict_policy_lookup",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["Policy POL-5003 details dekh kar batao."],
+      "chaos_overlay": {
+        "inject_schema_error": true,
+        "corrupt_output_type": "empty_dict",
+        "target_tools": ["lookup_policy"]
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["lookup_policy"],
+        "recovery_expectation": "Agent recognizes missing policy data and asks user to verify policy number."
+      }
+    },
+    {
+      "id": "E3_01_malformed_args_argument_corruption",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["File claim POL-5004 on 2026-06-15 for 32000."],
+      "chaos_overlay": {
+        "inject_malformed_args": true,
+        "corrupt_arg_keys": true,
+        "target_tools": ["create_claim"],
+        "trigger_on_call_count": 1
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["create_claim"],
+        "recovery_expectation": "Agent catches parameter mismatch and does not enter infinite recursion."
+      }
+    },
+    {
+      "id": "E3_02_multiple_tool_failures_then_graceful_stop",
+      "family": "E_recovery_and_loop_pressure",
+      "user_turns": ["Check status of claim CLM-9999."],
+      "chaos_overlay": {
+        "inject_tool_error": true,
+        "tool_error_message": "Network Gateway Timeout",
+        "target_tools": ["get_claim_status"]
+      },
+      "behavior_contract": {
+        "expected_action": "execute",
+        "expected_tools": ["get_claim_status"],
+        "recovery_expectation": "Agent does not loop more than 3 times before returning graceful user notification."
+      }
+    }
+  ]
+}
